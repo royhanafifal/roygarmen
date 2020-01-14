@@ -10,16 +10,16 @@ class Admin extends CI_Controller {
 
 	public function index(){
         $data['order_status'] = $this->order_status_m->get_status();
-		$this->load->view('admin', $data);
+		$this->load->view('admin/order/order', $data);
     }
     
     public function add_order(){
-        $this->load->view('add_order');
+        $this->load->view('admin/order/add_order');
     }
 
     public function save_order(){
         $this->order_status_m->insert_status();
-        redirect('admin');
+        redirect('admin/order/order');
     }
 
     function get_edit_order(){
@@ -35,7 +35,7 @@ class Admin extends CI_Controller {
                 'proses_2'     => $i['proses_2'],
                 'proses_3'     => $i['proses_3']
             );
-            $this->load->view('edit_order',$data);
+            $this->load->view('admin/order/edit_order',$data);
         }else{
             echo "Data Was Not Found";
         }
@@ -49,12 +49,12 @@ class Admin extends CI_Controller {
         $this->proses_2      = $_GET['proses2'];
         $this->proses_3      = $_GET['proses3'];
         $this->order_status_m->update($this);
-        redirect('admin');
+        redirect('admin/order/order');
     }
 
     function delete_order(){
         $id_order = $this->uri->segment(3);
         $this->order_status_m->delete_order($id_order);
-        redirect('admin');
+        redirect('admin/order/order');
     }
 }

@@ -10,16 +10,16 @@ class Customer extends CI_Controller {
 
 	public function index(){
         $data['customer'] = $this->customer_m->get_customer();
-		$this->load->view('customer', $data);
+		$this->load->view('admin/customer/customer', $data);
     }
     
     public function add_customer(){
-        $this->load->view('add_customer');
+        $this->load->view('admin/customer/add_customer');
     }
 
     public function save_customer(){
         $this->customer_m->insert_status();
-        redirect('customer');
+        redirect('admin/customer/customer');
     }
 
     function get_edit_customer(){
@@ -33,7 +33,7 @@ class Customer extends CI_Controller {
                 'alamat_customer'  => $i['alamat_customer'],
                 'no_hp_customer'     => $i['no_hp_customer']
             );
-            $this->load->view('edit_customer',$data);
+            $this->load->view('admin/customer/edit_customer',$data);
         }else{
             echo "Data Was Not Found";
         }
@@ -45,12 +45,12 @@ class Customer extends CI_Controller {
         $this->alamat_customer   = $_GET['alamat_customer'];
         $this->no_hp_customer      = $_GET['pno_hp_customerroses1'];
         $this->customer_m->update($this);
-        redirect('customer');
+        redirect('admin/customer/customer');
     }
 
     function delete_customer(){
         $id_customer = $this->uri->segment(3);
         $this->customer_m->delete_customer($id_customer);
-        redirect('customer');
+        redirect('admin/customer/customer');
     }
 }
