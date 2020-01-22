@@ -6,11 +6,12 @@ class Customer_m extends CI_Model{
     return $query->result();
   }
 
-  function insert_status(){
+  function insert_customer(){
     $this->id_customer     = $_GET['id_customer'];
     $this->nama_customer = $_GET['nama_customer'];
     $this->alamat_customer   = $_GET['alamat_customer'];
     $this->no_hp_customer      = $_GET['no_hp_customer'];
+    $this->status_aktif      = $_GET['status_aktif'];
 
     $this->db->insert('customers', $this);
   }
@@ -22,11 +23,11 @@ class Customer_m extends CI_Model{
 
   function update($data){
     $this->db->where('id_customer', $data->id_customer);
-    $this->db->update('order_status', $data);
+    $this->db->update('customers', $data);
   }
 
   function delete_customer($id_customer){
-    $this->db->delete('order_status', array('id_customer' => $id_customer));
+    $this->db->delete('customers', array('id_customer' => $id_customer));
   }
 
 }

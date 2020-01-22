@@ -5,11 +5,11 @@
 
             <ul class="list-unstyled components">
                 <p>Assalamualaikum Admin</p>
-                <li class="active">
-                    <a href="<?php echo site_url('admin');?>">Order</a>
+                <li class="">
+                    <a href="<?php echo base_url('admin');?>">Order</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('customer');?>">Customer</a>
+                    <a href="<?php echo base_url('customer');?>">Customer</a>
                 </li>
             </ul>
         </nav>

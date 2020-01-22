@@ -44,7 +44,7 @@
             <h3>Edit Data Order</h3>
             <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
             
-            <form action="<?php echo site_url('admin/update_order');?>" method="get">
+            <form action="<?php echo base_url('admin/update_order');?>" method="get">
                 <label for="orderKode">Kode Order</label>
                 <input name="id_order" type="text" id="orderKode" value="<?php echo $id_order;?>"><br>
                 <label for="namaPemesan">Nama Pemesan</label>

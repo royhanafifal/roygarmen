@@ -18,7 +18,7 @@
             <h2>Data Customer</h2>
             <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
-            <form action="<?php echo site_url('customer/add_order');?>"><button class="button button2">Tambahkan Customer</button></form>
+            <form action="<?php echo site_url('customer/add_customer');?>"><button class="button button2">Tambahkan Customer</button></form>
 
             <table class="table table-bordered">
                     <thead>
@@ -45,8 +45,8 @@
                                     
                             </td>
                             <td>
-                                    <a href="<?php echo site_url('admin/get_edit_customer/'.$data->id_customer);?>">Edit</a> | 
-                                    <a href="<?php echo site_url('admin/delete_customer/'.$data->id_customer);?>">Hapus</a>
+                                    <a href="<?php echo site_url('customer/get_edit_customer/'.$data->id_customer);?>">Edit</a> | 
+                                    <a href="<?php echo site_url('customer/delete_customer/'.$data->id_customer);?>">Hapus</a>
                             </td>
                         </tr>
                         <?php $no++; } ?>

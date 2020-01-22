@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
 
     public function save_order(){
         $this->order_status_m->insert_status();
-        redirect('admin/order/order');
+        redirect('admin');
     }
 
     function get_edit_order(){
@@ -49,12 +49,12 @@ class Admin extends CI_Controller {
         $this->proses_2      = $_GET['proses2'];
         $this->proses_3      = $_GET['proses3'];
         $this->order_status_m->update($this);
-        redirect('admin/order/order');
+        redirect('admin');
     }
 
     function delete_order(){
         $id_order = $this->uri->segment(3);
         $this->order_status_m->delete_order($id_order);
-        redirect('admin/order/order');
+        redirect('admin');
     }
 }

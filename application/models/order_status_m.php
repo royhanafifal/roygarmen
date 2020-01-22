@@ -2,6 +2,7 @@
 class Order_status_m extends CI_Model{
  
   function get_status(){
+    $this->db->order_by('tanggal_order', 'DESC');
     $query = $this->db->get('order_status');
     return $query->result();
   }

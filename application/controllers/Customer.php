@@ -18,8 +18,8 @@ class Customer extends CI_Controller {
     }
 
     public function save_customer(){
-        $this->customer_m->insert_status();
-        redirect('admin/customer/customer');
+        $this->customer_m->insert_customer();
+        redirect('customer');
     }
 
     function get_edit_customer(){
@@ -51,6 +51,6 @@ class Customer extends CI_Controller {
     function delete_customer(){
         $id_customer = $this->uri->segment(3);
         $this->customer_m->delete_customer($id_customer);
-        redirect('admin/customer/customer');
+        redirect('customer');
     }
 }
