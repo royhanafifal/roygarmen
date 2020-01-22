@@ -31,7 +31,8 @@ class Customer extends CI_Controller {
                 'id_customer'    => $i['id_customer'],
                 'nama_customer'  => $i['nama_customer'],
                 'alamat_customer'  => $i['alamat_customer'],
-                'no_hp_customer'     => $i['no_hp_customer']
+                'no_hp_customer'     => $i['no_hp_customer'],
+                'status_aktif'     => $i['status_aktif']
             );
             $this->load->view('admin/customer/edit_customer',$data);
         }else{
@@ -40,12 +41,13 @@ class Customer extends CI_Controller {
     }
 
     function update_customer(){
-        $this->id_customer     = $_GET['id_customer'];
+        $this->id_customer = $_GET['id_customer'];
         $this->nama_customer = $_GET['nama_customer'];
-        $this->alamat_customer   = $_GET['alamat_customer'];
-        $this->no_hp_customer      = $_GET['pno_hp_customerroses1'];
-        $this->customer_m->update($this);
-        redirect('admin/customer/customer');
+        $this->alamat_customer = $_GET['alamat_customer'];
+        $this->no_hp_customer = $_GET['no_hp_customer'];
+        $this->status_aktif = $_GET['status_aktif'];
+        $this->customer_m->update_customer($this);
+        redirect('customer');
     }
 
     function delete_customer(){

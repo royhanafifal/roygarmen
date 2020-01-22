@@ -41,7 +41,7 @@
 
             <?php $this->load->view("admin/_partials/navbar.php") ?>
 
-            <h3>Edit Data Customer</h3>
+            <h3>Tambah Data Customer</h3>
             <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
             
             <form action="<?php echo site_url('customer/save_customer');?>" method="get">
@@ -52,8 +52,8 @@
                 <label for="noHP">No HP</label>
                 <input name="no_hp_customer" type="text" id="noHP"><br>
                 <label for="status">Status Aktif</label><br>
-                <input type="radio" name="status" value=true checked> Aktif
-                <input type="radio" name="status" value=false> Tidak Aktif<br>
+                <input type="radio" name="status" value="1" checked> Aktif
+                <input type="radio" name="status" value="0"> Tidak Aktif<br>
                 <input type="submit" value="Simpan">
             </form>
 

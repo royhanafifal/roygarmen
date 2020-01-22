@@ -11,7 +11,7 @@ class Customer_m extends CI_Model{
     $this->nama_customer = $_GET['nama_customer'];
     $this->alamat_customer   = $_GET['alamat_customer'];
     $this->no_hp_customer      = $_GET['no_hp_customer'];
-    $this->status_aktif      = $_GET['status_aktif'];
+    $this->status_aktif      = $_GET['status'];
 
     $this->db->insert('customers', $this);
   }
@@ -21,7 +21,7 @@ class Customer_m extends CI_Model{
     return $query;
   }
 
-  function update($data){
+  function update_customer($data){
     $this->db->where('id_customer', $data->id_customer);
     $this->db->update('customers', $data);
   }
