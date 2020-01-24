@@ -2,8 +2,13 @@
 class Order_status_m extends CI_Model{
  
   function get_status(){
+    $this->db->select('
+      order_status.*,customers.id_customer AS id_customer, customers.nama_customer AS nama_customer
+      ');
+    $this->db->join('customers', 'order_status.id_customer=customers.id_customer');
+    $this->db->from('order_status');
     $this->db->order_by('tanggal_order', 'DESC');
-    $query = $this->db->get('order_status');
+    $query = $this->db->get();
     return $query->result();
   }
 

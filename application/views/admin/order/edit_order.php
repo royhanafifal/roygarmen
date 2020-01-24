@@ -45,8 +45,8 @@
             <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
             
             <form action="<?php echo base_url('admin/update_order');?>" method="get">
-                <label for="orderKode">Kode Order</label>
-                <input name="id_order" type="text" id="orderKode" value="<?php echo $id_order;?>"><br>
+                <label for="orderKode">Kode Order (Kolom ini bersifat unique, tidak bisa diubah)</label>
+                <input name="id_order" type="text" id="orderKode" value="<?php echo $id_order;?>" readonly><br>
                 <label for="namaPemesan">Nama Pemesan</label>
                 <input name="nama_pemesan" type="text" id="namaPemesan" value="<?php echo $nama_pemesan;?>"><br>
                 <label for="namaOrder">Nama Order</label>

@@ -30,6 +30,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Order Kode</th>
                     <th scope="col">Tanggal Pemesanan</th>
+                    <th scope="col">Id Pemesan</th>
                     <th scope="col">Nama Pemesan</th>
                     <th scope="col">Nama Order</th>
                     <th scope="col">Proses 1</th>
@@ -45,7 +46,8 @@
                         <td><?php echo $no ?></td>
                         <td><?php echo $order->id_order ?></td>
                         <td><?php echo $order->tanggal_order ?></td>
-                        <td><?php echo $order->nama_pemesan ?></td>
+                        <td><?php echo $order->id_customer ?></td>
+                        <td><?php echo $order->nama_customer ?></td>
                         <td><?php echo $order->nama_order ?></td>
                         <td>
                             <?php 

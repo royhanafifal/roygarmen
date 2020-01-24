@@ -21,8 +21,8 @@ class Customer_m extends CI_Model{
     return $query;
   }
 
-  function update_customer($data){
-    $this->db->where('id_customer', $data->id_customer);
+  function update_customer($where, $data){
+    $this->db->where($where);
     $this->db->update('customers', $data);
   }
 

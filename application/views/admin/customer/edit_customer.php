@@ -45,6 +45,8 @@
             <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
             
             <form action="<?php echo site_url('customer/update_customer');?>" method="get">
+                <label for="idCustomer">Id Customer (Kolom ini bersifat unique, tidak bisa diubah)</label>
+                <input name="id_customer" type="text" id="idCustomer" value="<?php echo $id_customer;?>" readonly><br>
                 <label for="namaCustomer">Nama Customer</label>
                 <input name="nama_customer" type="text" id="namaCustomer" value="<?php echo $nama_customer;?>"><br>
                 <label for="alamat">Alamat</label>
