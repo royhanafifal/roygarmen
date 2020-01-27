@@ -44,7 +44,8 @@
                             <td><?php 
                                     if($data->status_aktif)
                                         echo "Aktif";
-                                    else echo "Tidak Aktif"; ?></td>
+                                    else echo "Tidak Aktif"; ?>
+                            </td>
                             <td>
                                     <a href="<?php echo site_url('customer/get_edit_customer/'.$data->id_customer);?>">Edit</a> | 
                                     <a href="<?php echo site_url('customer/delete_customer/'.$data->id_customer);?>">Hapus</a>

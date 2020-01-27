@@ -18,8 +18,37 @@ class Admin extends CI_Controller {
     }
 
     public function save_order(){
-        $this->order_status_m->insert_status();
+        // $this->order_status_m->insert_status();
+        // redirect('admin');
+
+        $nama_customer = $_GET['nama_pemesan'];
+        $alamat_customer = $_GET['alamat_pemesan'];
+        $no_hp_customer = $_GET['no_hp_pemesan'];
+        $data_customer =  array(
+            'nama_customer' => $nama_customer,
+            'alamat_customer' => $alamat_customer,
+            'no_hp_customer' => $no_hp_customer,
+        );
+        $insert_customer = $this->order_status_m->insert_status('customers', $data_customer);
+        $id_customer = $this->order_status_m->get_customer_id_by_name($nama_customer);
+
+        $nama_order   = $_GET['nama_order'];
+        $proses_1      = $_GET['proses1'];
+        $proses_2      = $_GET['proses2'];
+        $proses_3      = $_GET['proses3'];
+        $tanggal_selesai_order = $_GET['tanggal_selesai_order'];
+        $data_order = array(
+            'nama_order' => $nama_order,
+            'id_customer' => serialize($id_customer),
+            'proses_1' => $proses_1,
+            'proses_2' => $proses_2,
+            'proses_3' => $proses_3,
+            'tanggal_selesai_order' => $tanggal_selesai_order,
+        );
+
+        $insert_order = $this->order_status_m->insert_status('order_status', $data_order);
         redirect('admin');
+
     }
 
     function get_edit_order(){
@@ -29,7 +58,7 @@ class Admin extends CI_Controller {
             $i = $result->row_array();
             $data = array(
                 'id_order'    => $i['id_order'],
-                'nama_pemesan'  => $i['nama_pemesan'],
+                'nama_customer'  => $i['nama_customer'],
                 'nama_order'  => $i['nama_order'],
                 'proses_1'     => $i['proses_1'],
                 'proses_2'     => $i['proses_2'],

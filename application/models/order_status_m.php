@@ -2,9 +2,7 @@
 class Order_status_m extends CI_Model{
  
   function get_status(){
-    $this->db->select('
-      order_status.*,customers.id_customer AS id_customer, customers.nama_customer AS nama_customer
-      ');
+    $this->db->select('*');
     $this->db->join('customers', 'order_status.id_customer=customers.id_customer');
     $this->db->from('order_status');
     $this->db->order_by('tanggal_order', 'DESC');
@@ -12,19 +10,17 @@ class Order_status_m extends CI_Model{
     return $query->result();
   }
 
-  function insert_status(){
-    $this->id_order     = $_GET['id_order'];
-    $this->nama_pemesan = $_GET['nama_pemesan'];
-    $this->nama_order   = $_GET['nama_order'];
-    $this->proses_1      = $_GET['proses1'];
-    $this->proses_2      = $_GET['proses2'];
-    $this->proses_3      = $_GET['proses3'];
-
-    $this->db->insert('order_status', $this);
+  function insert_status($table, $data){
+    $query = $this->db->insert($table, $data);
+    return $query;
   }
 
   function get_order_by_id($id_order){
-    $query = $this->db->get_where('order_status', array('id_order' => $id_order));
+    $this->db->select('*');
+    $this->db->join('customers', 'order_status.id_customer=customers.id_customer');
+    $this->db->from('order_status');
+    $this->db->where('id_order', $id_order);
+    $query = $this->db->get();
     return $query;
   }
 
@@ -35,6 +31,15 @@ class Order_status_m extends CI_Model{
 
   function delete_order($id_order){
     $this->db->delete('order_status', array('id_order' => $id_order));
+  }
+
+  function get_customer_id_by_name($nama){
+    $this->db->select('customers.id_customer');
+    $this->db->from('customers');
+    $this->db->where('nama_customer', $nama);
+    $this->db->limit(1);
+    $query = $this->db->get();
+    return $query->result();
   }
 
 }

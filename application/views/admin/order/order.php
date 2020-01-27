@@ -36,6 +36,7 @@
                     <th scope="col">Proses 1</th>
                     <th scope="col">Proses 2</th>
                     <th scope="col">Proses 3</th>
+                    <th scope="col">Tanggal Selesai</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -100,6 +101,7 @@
                                 }
                             ?>    
                         </td>
+                        <td><?php echo $order->tanggal_selesai_order ?></td>
                         <td>
                                 <a href="<?php echo site_url('admin/get_edit_order/'.$order->id_order);?>">Edit</a> | 
                                 <a href="<?php echo site_url('admin/delete_order/'.$order->id_order);?>">Hapus</a>

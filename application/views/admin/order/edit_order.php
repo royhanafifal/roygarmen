@@ -48,7 +48,7 @@
                 <label for="orderKode">Kode Order (Kolom ini bersifat unique, tidak bisa diubah)</label>
                 <input name="id_order" type="text" id="orderKode" value="<?php echo $id_order;?>" readonly><br>
                 <label for="namaPemesan">Nama Pemesan</label>
-                <input name="nama_pemesan" type="text" id="namaPemesan" value="<?php echo $nama_pemesan;?>"><br>
+                <input name="nama_customer" type="text" id="namaCustomer" value="<?php echo $nama_customer;?>" readonly><br>
                 <label for="namaOrder">Nama Order</label>
                 <input name="nama_order" type="text" id="namaOrder" value="<?php echo $nama_order;?>"><br>
                 <label for="proses1">Proses 1</label><br>

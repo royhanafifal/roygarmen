@@ -45,12 +45,19 @@
             <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
             
             <form action="<?php echo site_url('admin/save_order');?>" method="get">
-                <label for="orderKode">Kode Order</label>
-                <input name="id_order" type="text" id="orderKode"><br>
                 <label for="namaPemesan">Nama Pemesan</label>
                 <input name="nama_pemesan" type="text" id="namaPemesan"><br>
+                <label for="alamatPemesan">Alamat Pemesan</label>
+                <input name="alamat_pemesan" type="text" id="alamatPemesan"><br>
+                <label for="noHpPemesan">No HP Pemesan</label>
+                <input name="no_hp_pemesan" type="text" id="noHpPemesan"><br>
+
+                <div class="line"></div>
+
                 <label for="namaOrder">Nama Order</label>
                 <input name="nama_order" type="text" id="namaOrder"><br>
+                <label for="tanggalSelesai">Tanggal Selesai</label><br>
+                <input name="tanggal_selesai_order" type="date" id="tanggalSelesai"><br><br>
                 <label for="proses1">Proses 1</label><br>
                 <input type="radio" name="proses1" value=0 checked> Belum Dikerjakan
                 <input type="radio" name="proses1" value=1> Sedang Proses
