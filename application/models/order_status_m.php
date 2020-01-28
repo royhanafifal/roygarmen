@@ -34,12 +34,13 @@ class Order_status_m extends CI_Model{
   }
 
   function get_customer_id_by_name($nama){
-    $this->db->select('customers.id_customer');
+    $this->db->select('id_customer');
     $this->db->from('customers');
     $this->db->where('nama_customer', $nama);
     $this->db->limit(1);
     $query = $this->db->get();
-    return $query->result();
+    $id = $query->row();
+    return $id->id_customer;
   }
 
 }

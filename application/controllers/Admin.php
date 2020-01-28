@@ -31,6 +31,7 @@ class Admin extends CI_Controller {
         );
         $insert_customer = $this->order_status_m->insert_status('customers', $data_customer);
         $id_customer = $this->order_status_m->get_customer_id_by_name($nama_customer);
+        // var_dump($id_customer);
 
         $nama_order   = $_GET['nama_order'];
         $proses_1      = $_GET['proses1'];
@@ -39,7 +40,7 @@ class Admin extends CI_Controller {
         $tanggal_selesai_order = $_GET['tanggal_selesai_order'];
         $data_order = array(
             'nama_order' => $nama_order,
-            'id_customer' => serialize($id_customer),
+            'id_customer' => $id_customer,
             'proses_1' => $proses_1,
             'proses_2' => $proses_2,
             'proses_3' => $proses_3,
