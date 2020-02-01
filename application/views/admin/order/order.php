@@ -51,26 +51,13 @@
                         <td><?php echo $order->nama_customer ?></td>
                         <td><?php echo $order->nama_order ?></td>
                         <td>
-                            <?php 
-                                switch ($order->proses_1) {
-                                    case 0:
-                                            echo '<div class="p-2 d-inline-block rounded-circle bg-danger"></div>';
-                                    break;
-
-                                    case 1:
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-primary"></div>';
-                                    break;
-                                    
-                                    case 2:
-                                            echo '<div class="p-2 d-inline-block rounded-circle bg-success"></div>';
-                                    break;
-                                }
-                            ?>    
+                            <!-- Button trigger modal -->
+                            <a href="<?php echo site_url('proses/'.$order->id_order);?>" class="btn btn-primary">Pemotongan</a>
                         </td>
                         <td>
                             <?php 
                                 switch ($order->proses_2) {
-                                    case 0:
+                                    case 0: 
                                         echo '<div class="p-2 d-inline-block rounded-circle bg-danger"></div>';
                                     break;
 
@@ -125,6 +112,8 @@
     <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
+
+
 
 </html>
 

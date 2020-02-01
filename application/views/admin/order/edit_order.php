@@ -51,6 +51,8 @@
                 <input name="nama_customer" type="text" id="namaCustomer" value="<?php echo $nama_customer;?>" readonly><br>
                 <label for="namaOrder">Nama Order</label>
                 <input name="nama_order" type="text" id="namaOrder" value="<?php echo $nama_order;?>"><br>
+                <label for="tanggalSelesai">Tanggal Selesai</label>
+                <input name="tanggal_selesai_order" type="date" id="tanggalSelesai" value="<?php echo $tanggal_selesai_order;?>"><br>
                 <label for="proses1">Proses 1</label><br>
                 <?php 
                     switch ($proses_1) {

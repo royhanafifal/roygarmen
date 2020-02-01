@@ -18,9 +18,6 @@ class Admin extends CI_Controller {
     }
 
     public function save_order(){
-        // $this->order_status_m->insert_status();
-        // redirect('admin');
-
         $nama_customer = $_GET['nama_pemesan'];
         $alamat_customer = $_GET['alamat_pemesan'];
         $no_hp_customer = $_GET['no_hp_pemesan'];
@@ -28,10 +25,10 @@ class Admin extends CI_Controller {
             'nama_customer' => $nama_customer,
             'alamat_customer' => $alamat_customer,
             'no_hp_customer' => $no_hp_customer,
+            'status_aktif' => '1',
         );
         $insert_customer = $this->order_status_m->insert_status('customers', $data_customer);
         $id_customer = $this->order_status_m->get_customer_id_by_name($nama_customer);
-        // var_dump($id_customer);
 
         $nama_order   = $_GET['nama_order'];
         $proses_1      = $_GET['proses1'];
@@ -61,6 +58,7 @@ class Admin extends CI_Controller {
                 'id_order'    => $i['id_order'],
                 'nama_customer'  => $i['nama_customer'],
                 'nama_order'  => $i['nama_order'],
+                'tanggal_selesai_order'  => $i['tanggal_selesai_order'],
                 'proses_1'     => $i['proses_1'],
                 'proses_2'     => $i['proses_2'],
                 'proses_3'     => $i['proses_3']
@@ -73,8 +71,8 @@ class Admin extends CI_Controller {
 
     function update_order(){
         $this->id_order     = $_GET['id_order'];
-        $this->nama_pemesan = $_GET['nama_pemesan'];
         $this->nama_order   = $_GET['nama_order'];
+        $this->tanggal_selesai_order   = $_GET['tanggal_selesai_order'];
         $this->proses_1      = $_GET['proses1'];
         $this->proses_2      = $_GET['proses2'];
         $this->proses_3      = $_GET['proses3'];
