@@ -24,7 +24,7 @@
             <br>
             <form action="<?php echo site_url('admin/add_order');?>"><button class="button button2">Tambahkan Data</button></form>
 
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                     <th scope="col">No</th>
@@ -33,9 +33,10 @@
                     <th scope="col">Id Pemesan</th>
                     <th scope="col">Nama Pemesan</th>
                     <th scope="col">Nama Order</th>
-                    <th scope="col">Proses 1</th>
-                    <th scope="col">Proses 2</th>
-                    <th scope="col">Proses 3</th>
+                    <th scope="col">Pemotongan</th>
+                    <th scope="col">Sablon / Bordir</th>
+                    <th scope="col">Penjahitan</th>
+                    <th scope="col">Finishing</th>
                     <th scope="col">Tanggal Selesai</th>
                     <th scope="col">Action</th>
                     </tr>
@@ -51,47 +52,21 @@
                         <td><?php echo $order->nama_customer ?></td>
                         <td><?php echo $order->nama_order ?></td>
                         <td>
-                            <!-- Button trigger modal -->
-                            <a href="<?php echo site_url('proses/'.$order->id_order);?>" class="btn btn-primary">Pemotongan</a>
+                            <a href="<?php echo site_url('proses/proses_pemotongan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <?php 
-                                switch ($order->proses_2) {
-                                    case 0: 
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-danger"></div>';
-                                    break;
-
-                                    case 1:
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-primary"></div>';
-                                    break;
-                                    
-                                    case 2:
-                                            echo '<div class="p-2 d-inline-block rounded-circle bg-success"></div>';
-                                    break;
-                                }
-                            ?>    
+                            <a href="<?php echo site_url('proses/proses_sablon/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <?php 
-                                switch ($order->proses_3) {
-                                    case 0:
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-danger"></div>';
-                                    break;
-
-                                    case 1:
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-primary"></div>';
-                                    break;
-                                    
-                                    case 2:
-                                            echo '<div class="p-2 d-inline-block rounded-circle bg-success"></div>';
-                                    break;
-                                }
-                            ?>    
+                            <a href="<?php echo site_url('proses/proses_penjahitan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
+                        </td>
+                        <td>
+                            <a href="<?php echo site_url('proses/proses_finishing/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
                         </td>
                         <td><?php echo $order->tanggal_selesai_order ?></td>
                         <td>
-                                <a href="<?php echo site_url('admin/get_edit_order/'.$order->id_order);?>">Edit</a> | 
-                                <a href="<?php echo site_url('admin/delete_order/'.$order->id_order);?>">Hapus</a>
+                                <a href="<?php echo site_url('admin/get_edit_order/'.$order->id_order);?>" class="btn btn-warning">Edit</a>
+                                <a href="<?php echo site_url('admin/delete_order/'.$order->id_order);?>" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     <?php $no++; } ?>
@@ -99,12 +74,6 @@
                 </tbody>
             </table>
             <div class="line"></div>
-            <h4>Keterangan</h4>
-            <ul style="list-style-type:none">
-                <li><div class="rounded-circle bg-danger status"></div>&nbsp;Proses Belum Dilakukan</li>
-                <li><div class="rounded-circle bg-primary status"></div>&nbsp;Proses Sedang Dikerjakan</li>
-                <li><div class="rounded-circle bg-success status"></div>&nbsp;Proses Telah Selesai</li>
-            </ul>
 
         </div>
     </div>

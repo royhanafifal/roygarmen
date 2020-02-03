@@ -10,9 +10,9 @@
         <div id="content">
         <?php $this->load->view("admin/_partials/navbar.php") ?>
 
-        <h3>Edit Data Order</h3>
+        <h3>Proses Finishing</h3>
         <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
-        <form action="<?php echo base_url('proses/save');?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('proses/save_finishing');?>" method="post" enctype="multipart/form-data">
             <input type="text" hidden value="<?=$id_order ?>" name="id_order">
             <div class="custom-control custom-radio">
                 <input type="radio" id="customRadio1" name="status" class="custom-control-input" value="1">
