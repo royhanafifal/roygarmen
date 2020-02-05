@@ -52,7 +52,7 @@
                         <td><?php echo $order->nama_customer ?></td>
                         <td><?php echo $order->nama_order ?></td>
                         <td>
-                            <a href="<?php echo site_url('proses/proses_pemotongan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
+                            <a href="<?php echo site_url('proses/get_edit_pemotongan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
                             <a href="<?php echo site_url('proses/proses_sablon/'.$order->id_order);?>" class="btn btn-primary">Edit</a>

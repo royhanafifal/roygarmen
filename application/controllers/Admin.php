@@ -67,7 +67,7 @@ class Admin extends CI_Controller {
         }else{
             echo "Data Was Not Found";
         }
-       }
+    }
 
     function update_order(){
         $this->id_order     = $_GET['id_order'];

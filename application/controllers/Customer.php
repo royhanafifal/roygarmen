@@ -42,13 +42,13 @@ class Customer extends CI_Controller {
 
     function update_customer(){
         $data = array(
-            'nama_customer'  => $this->input->get('nama_customer'),
-            'alamat_customer'  => $this->input->get('alamat_customer'),
-            'no_hp_customer'     => $this->input->get('no_hp_customer'),
-            'status_aktif'     => $this->input->get('status_aktif')
+            'nama_customer'  => $_GET['nama_customer'],
+            'alamat_customer'  => $_GET['alamat_customer'],
+            'no_hp_customer'     => $_GET['no_hp_customer'],
+            'status_aktif'     => $_GET['status_aktif']
         );
         $where = array(
-            'id_customer'    => $this->input->get('id_customer')
+            'id_customer'    => $_GET['id_customer']
         );
         
         $this->customer_m->update_customer($where, $data);

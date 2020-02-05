@@ -33,8 +33,7 @@
         function save_pemotongan(){
             $config = array(
                 'upload_path' => './assets/images/pemotongan',
-                'allowed_types' => 'jpg|png|jpeg',
-                'encrypt_name' => TRUE
+                'allowed_types' => 'jpg|png|jpeg'
             );
             $this->upload->initialize($config);
 
@@ -115,6 +114,42 @@
             }
 
             $this->proses_m->insert('proses_finishing', $data);
+            redirect('admin');
+        }
+
+        function get_edit_pemotongan(){
+            $id_order = $this->uri->segment(3);
+            $result = $this->proses_m->get_edit_pemotongan($id_order);
+            if($result->num_rows() > 0){
+                $i = $result->row_array();
+                $data = array(
+                    'id_proses'        => $i['id_proses'],
+                    'foto'             => $i['foto'],
+                    'keterangan'       => $i['keterangan'],
+                    'id_order'         => $i['id_order'],
+                    'status'           => $i['status']
+                );
+                $this->load->view('admin/proses/proses_pemotongan',$data);
+            }else{
+                $data = array(
+                    'id_order'                => null
+                );
+                $this->load->view('admin/proses/proses_pemotongan', $data);
+            }
+        }
+
+        function update_pemotongan(){
+            $data = array(
+                'id_proses'  => $_GET['id_proses'],
+                'id_order'              => $_GET['id_order'],
+                'foto'              => $_GET['foto'],
+                'keterangan'            => $_GET['keterangan'],
+                'status'                => $_GET['status']
+            );
+
+            $this->proses_m->update('proses_pemotongan', $data);
+
+            
             redirect('admin');
         }
 

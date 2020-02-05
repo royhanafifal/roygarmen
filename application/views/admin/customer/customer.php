@@ -23,13 +23,13 @@
             <table class="table table-bordered">
                     <thead>
                         <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Id Customer</th>
-                        <th scope="col">Nama Customer</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">No HP</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Id Customer</th>
+                            <th scope="col">Nama Customer</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">No HP</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
