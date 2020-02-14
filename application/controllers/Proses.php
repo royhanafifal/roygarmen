@@ -92,27 +92,13 @@
                     $data['foto']="pemotongan/".$this->upload->data("file_name");
                 }
                 
-                $path = $_SERVER['DOCUMENT_ROOT'].'./assets/images/pemotongan/'.$_POST['old_foto'];
-                $files = glob($path.'*'); // get all file names
-                foreach($files as $file){ // iterate files
-                if(is_file($file))
-                    unlink($file); // delete file
-                    //echo $file.'file deleted';
-                }
+                unlink("./assets/images/".$_POST['old_foto']);//hapus foto lama
             }
             
             $this->proses_m->update('proses_pemotongan', $data);
             redirect('admin');
         }
 
-        private function deleteFiles($path){
-            $files = glob($path.'*'); // get all file names
-            foreach($files as $file){ // iterate files
-              if(is_file($file))
-                unlink($file); // delete file
-                //echo $file.'file deleted';
-            }   
-        }
     }
     
 ?>
