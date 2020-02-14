@@ -41,5 +41,6 @@ class Proses_m extends CI_Model{
         $this->db->where('id_order', $data['id_order']);
         $this->db->where('id_proses', $data['id_proses']);
         $this->db->update($table, $data);
-      }
+    }
+
 }

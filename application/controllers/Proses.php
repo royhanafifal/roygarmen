@@ -51,72 +51,6 @@
             redirect('admin');
         }
 
-        function save_sablon(){
-            $config = array(
-                'upload_path' => './assets/images/sablon',
-                'allowed_types' => 'jpg|png|jpeg',
-                'encrypt_name' => TRUE
-            );
-            $this->upload->initialize($config);
-
-            $data = array(
-                "keterangan" => $_POST['keterangan'],
-                "id_order" => $_POST['id_order'],
-                "status" => $_POST['status']
-            );
-
-            if($this->upload->do_upload('foto')){
-                $data['foto']="sablon/".$this->upload->data("file_name");
-            }
-
-            $this->proses_m->insert('proses_sablon', $data);
-            redirect('admin');
-        }
-
-        function save_penjahitan(){
-            $config = array(
-                'upload_path' => './assets/images/penjahitan',
-                'allowed_types' => 'jpg|png|jpeg',
-                'encrypt_name' => TRUE
-            );
-            $this->upload->initialize($config);
-
-            $data = array(
-                "keterangan" => $_POST['keterangan'],
-                "id_order" => $_POST['id_order'],
-                "status" => $_POST['status']
-            );
-
-            if($this->upload->do_upload('foto')){
-                $data['foto']="penjahitan/".$this->upload->data("file_name");
-            }
-
-            $this->proses_m->insert('proses_penjahitan', $data);
-            redirect('admin');
-        }
-
-        function save_finishing(){
-            $config = array(
-                'upload_path' => './assets/images/finishing',
-                'allowed_types' => 'jpg|png|jpeg',
-                'encrypt_name' => TRUE
-            );
-            $this->upload->initialize($config);
-
-            $data = array(
-                "keterangan" => $_POST['keterangan'],
-                "id_order" => $_POST['id_order'],
-                "status" => $_POST['status']
-            );
-
-            if($this->upload->do_upload('foto')){
-                $data['foto']="finishing/".$this->upload->data("file_name");
-            }
-
-            $this->proses_m->insert('proses_finishing', $data);
-            redirect('admin');
-        }
-
         function get_edit_pemotongan(){
             $id_order = $this->uri->segment(3);
             $result = $this->proses_m->get_edit_pemotongan($id_order);
@@ -139,20 +73,46 @@
         }
 
         function update_pemotongan(){
+            $config = array(
+                'upload_path' => './assets/images/pemotongan',
+                'allowed_types' => 'jpg|png|jpeg'
+            );
+            $this->upload->initialize($config);
+
             $data = array(
-                'id_proses'  => $_GET['id_proses'],
-                'id_order'              => $_GET['id_order'],
-                'foto'              => $_GET['foto'],
-                'keterangan'            => $_GET['keterangan'],
-                'status'                => $_GET['status']
+                'id_proses' => $_POST['id_proses'],
+                'id_order'  => $_POST['id_order'],
+                'foto'      => $_POST['old_foto'],
+                'keterangan'=> $_POST['keterangan'],
+                'status'    => $_POST['status']
             );
 
-            $this->proses_m->update('proses_pemotongan', $data);
-
+            if($_POST['foto']!=$_POST['old_foto']){
+                if($this->upload->do_upload('foto')){
+                    $data['foto']="pemotongan/".$this->upload->data("file_name");
+                }
+                
+                $path = $_SERVER['DOCUMENT_ROOT'].'./assets/images/pemotongan/'.$_POST['old_foto'];
+                $files = glob($path.'*'); // get all file names
+                foreach($files as $file){ // iterate files
+                if(is_file($file))
+                    unlink($file); // delete file
+                    //echo $file.'file deleted';
+                }
+            }
             
+            $this->proses_m->update('proses_pemotongan', $data);
             redirect('admin');
         }
 
+        private function deleteFiles($path){
+            $files = glob($path.'*'); // get all file names
+            foreach($files as $file){ // iterate files
+              if(is_file($file))
+                unlink($file); // delete file
+                //echo $file.'file deleted';
+            }   
+        }
     }
     
 ?>

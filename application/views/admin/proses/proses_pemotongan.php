@@ -14,10 +14,10 @@
         <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
         <?php if($id_order){?>
-            <form action="<?php echo base_url('proses/update_pemotongan');?>" method="get" enctype="multipart/form-data">
+            <form action="<?php echo base_url('proses/update_pemotongan');?>" method="post" enctype="multipart/form-data">
                 <input type="text"  value="<?=$id_order ?>" name="id_order">
                 <input type="text"  value="<?=$id_proses ?>" name="id_proses">
-                <input type="text"  value="<?=$foto ?>" name="foto">
+                <input type="text"  value="<?=$foto ?>" name="old_foto">
                 <?php
                     switch ($status){
                         case 0:
