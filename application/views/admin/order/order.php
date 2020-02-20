@@ -55,13 +55,13 @@
                             <a href="<?php echo site_url('proses/get_edit_pemotongan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('proses/proses_sablon/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
+                            <a href="<?php echo site_url('proses/get_edit_sablon/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('proses/proses_penjahitan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo site_url('proses/get_edit_penjahitan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
                         </td>
                         <td>
-                            <a href="<?php echo site_url('proses/proses_finishing/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo site_url('proses/get_edit_finishing/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
                         </td>
                         <td><?php echo $order->tanggal_selesai_order ?></td>
                         <td>
