@@ -4,7 +4,7 @@
     <?php $this->load->view("admin/_partials/head.php") ?>
     <style>
         .on-process{
-            opacity: 0.45;
+            opacity: 0.35;
         }
     </style>
     <title>Hasil Pencarian</title>
@@ -33,11 +33,6 @@
                 <td><?=$cari->tanggal_selesai_order?></td>
             </tr>
             <tr>
-                <th scope="row">Id Customer</th>
-                <td>:</td>
-                <td><?=$cari->id_customer?></td>
-            </tr>
-            <tr>
                 <th scope="row">Nama Customer</th>
                 <td>:</td>
                 <td><?=$cari->nama_customer?></td>
@@ -56,7 +51,9 @@
             <tr>
                 <td>
                     <?php foreach($status_pemotongan as $pemotongan) { ?>
+                        <a href="<?php echo site_url('DetailProses/pemotongan/'.$cari->id_order);?>">
                         <img src="<?php echo base_url().'assets/images/proses-icon/pemotongan.svg' ?>" class="<?= $pemotongan->status==null ? 'rounded mx-auto d-block on-process' : 'rounded mx-auto d-block' ?>" alt="Pemotongan">
+                        </a>
                     <?php } ?>
                 </td>
                 <td><img src="<?php echo base_url().'assets/images/proses-icon/next.png' ?>" class="" alt="Next"></td>
