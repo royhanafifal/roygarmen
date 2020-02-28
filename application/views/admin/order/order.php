@@ -52,21 +52,21 @@
                         <td><?php echo $order->nama_customer ?></td>
                         <td><?php echo $order->nama_order ?></td>
                         <td>
-                            <a href="<?php echo site_url('proses/get_edit_pemotongan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
+                            <a href="<?php echo site_url('proses/get_edit_pemotongan/'.$order->id_order);?>"><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('proses/get_edit_sablon/'.$order->id_order);?>" class="btn btn-primary">Edit</a>
+                            <a href="<?php echo site_url('proses/get_edit_sablon/'.$order->id_order);?>" ><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('proses/get_edit_penjahitan/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo site_url('proses/get_edit_penjahitan/'.$order->id_order);?>"><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>   
                         </td>
                         <td>
-                            <a href="<?php echo site_url('proses/get_edit_finishing/'.$order->id_order);?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo site_url('proses/get_edit_finishing/'.$order->id_order);?>"><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>   
                         </td>
                         <td><?php echo $order->tanggal_selesai_order ?></td>
                         <td>
-                                <a href="<?php echo site_url('admin/get_edit_order/'.$order->id_order);?>" class="btn btn-warning">Edit</a>
-                                <a href="<?php echo site_url('admin/delete_order/'.$order->id_order);?>" class="btn btn-danger">Hapus</a>
+                                <a href="<?php echo site_url('admin/get_edit_order/'.$order->id_order);?>"><button class="btn btn-warning"><i class="fa fa-edit"></i></button></a>
+                                <a href="<?php echo site_url('admin/delete_order/'.$order->id_order);?>" ><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                         </td>
                     </tr>
                     <?php $no++; } ?>

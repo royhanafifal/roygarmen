@@ -47,8 +47,8 @@
                                     else echo "Tidak Aktif"; ?>
                             </td>
                             <td>
-                                    <a href="<?php echo site_url('customer/get_edit_customer/'.$data->id_customer);?>">Edit</a> | 
-                                    <a href="<?php echo site_url('customer/delete_customer/'.$data->id_customer);?>">Hapus</a>
+                                    <a href="<?php echo site_url('customer/get_edit_customer/'.$data->id_customer);?>" ><button class="btn btn-warning"><i class="fa fa-edit"></i></button></a> | 
+                                    <a href="<?php echo site_url('customer/delete_customer/'.$data->id_customer);?>"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                             </td>
                         </tr>
                         <?php $no++; } ?>
